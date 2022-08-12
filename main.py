@@ -13,10 +13,20 @@ def add_task():
         messagebox.showwarning(message="Please enter a task.")
 
 
+def delete_task():
+    pass
+
+def load_tasks():
+    pass
+
+def  save_tasks():
+    pass
+
+
 scrollbar = Scrollbar(root)
 scrollbar.pack(side=RIGHT, fill=Y)
 
-listbox_task = Listbox(root, height=3, width=50)
+listbox_task = Listbox(root, height=10, width=50)
 listbox_task.config(yscrollcommand=scrollbar.set)
 listbox_task.pack()
 
@@ -27,5 +37,15 @@ entry_task.pack()
 
 button_add_task = Button(root, text="Add Task", width=48, command=add_task)
 button_add_task.pack()
+
+button_delete_task = Button(root, text="Delete Task", width=48, command=delete_task)
+button_delete_task.pack()
+
+button_load_tasks = Button(root, text="Load Task", width=48, command=load_tasks)
+button_load_tasks.pack()
+
+button_save_tasks = Button(root, text="Save Task", width=48, command=save_tasks)
+button_save_tasks.pack()
+
 
 root.mainloop()
