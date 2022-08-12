@@ -23,7 +23,13 @@ def delete_task():
 
 
 def load_tasks():
-    pass
+    try:
+        tasks = pickle.load(open("tasks.dat", "rb"))
+        listbox_task.delete(0, END)
+        for task in tasks:
+            listbox_task.insert(END, task)
+    except:
+        messagebox.showwarning(message="No save file on disk. Please save tasks first before loading.")
 
 
 def save_tasks():
