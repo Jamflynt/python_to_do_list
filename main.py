@@ -1,4 +1,5 @@
 from tkinter import messagebox, Tk, Listbox, Entry, Button, END, RIGHT, Y, Scrollbar, Frame
+import pickle
 
 root = Tk()
 root.title("To-Do List")
@@ -14,13 +15,20 @@ def add_task():
 
 
 def delete_task():
-    pass
+    try:
+        task_index = listbox_task.curselection()[0]
+        listbox_task.delete(task_index)
+    except:
+        messagebox.showwarning(message="Please select a task to delete.")
+
 
 def load_tasks():
     pass
 
-def  save_tasks():
-    pass
+
+def save_tasks():
+    tasks = listbox_task.get(0, listbox_task.size())
+    pickle.dump(tasks, open("tasks.dat", "wb"))
 
 
 scrollbar = Scrollbar(root)
